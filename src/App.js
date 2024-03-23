@@ -1,17 +1,17 @@
-import './App.css';
 import React from 'react';
-import Logo from './Components/Logo/Logo';
-import SignInForm from './Components/SignInForm/SignInForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './Components/LoginPage/LoginPage';
+import HomePage from './Components/HomePage/HomePage';
 
 function App() {
   return (
-    <div>
-      <Logo />
-      <SignInForm />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
-
-
 }
 
 export default App;
