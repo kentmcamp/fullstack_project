@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignInForm.css';
+import './SignInForm.scss';
 
 function SignInForm() {
   const navigate = useNavigate();
