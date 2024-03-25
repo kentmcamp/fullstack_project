@@ -1,8 +1,7 @@
 import React from 'react';
-import './HomePage.scss';
 import NavBar from '../NavBar/NavBar';
 
-function HomePage() {
+function Categories() {
     return (
         <div>
             <React.Fragment>
@@ -11,10 +10,10 @@ function HomePage() {
 
             <body>
                 <br/><br/><br/><br/>.
-                <h1>HomePage</h1>
+                <h1>Add Categories</h1>
             </body>
         </div>
     );
 }
 
-export default HomePage;
+export default Categories;

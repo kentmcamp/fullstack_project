@@ -12,7 +12,7 @@ function SignInForm() {
   };
 
   return (
-    <div>
+    <div className='signInForm'>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder='Username' id="username" name="username" />
         <br />
