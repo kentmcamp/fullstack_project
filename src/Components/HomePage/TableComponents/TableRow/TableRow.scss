@@ -1,0 +1,23 @@
+.card {
+    height: 400px;
+    width: 500px;
+    display: flex;
+    flex: 0 0 calc(33.33% - 20px);
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.card img {
+    flex: 1;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.card div {
+    flex: 1;
+}

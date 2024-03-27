@@ -98,10 +98,7 @@ const HomePage = (props) => {
       <React.Fragment>
         <NavBar />
       </React.Fragment>
-      <br />
-      <br />
-      <br />
-      <br />
+      <br /><br /><br /><br />
 
       <body className="formBody">
         {editing ? (
