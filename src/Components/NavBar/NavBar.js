@@ -15,10 +15,9 @@ function NavBar() {
         <header className='navbar'>
             <Logo className='logo' />
             <nav className='link-list' ref={navRef}>
-                <Link to='/home' className='link'>Home</Link>
-                <Link to='/view' className='link'>View Books</Link>
-                <Link to='/add' className='link'>Add Books</Link>
+                <Link to='/home' className='link'>Products</Link>
                 <Link to='/categories' className='link'>Categories</Link>
+                <Link to='/' className='link'>Logout</Link>
                 <button onClick={showNavBar} className='nav-btn'>
                     <FaTimes/>
                 </button>

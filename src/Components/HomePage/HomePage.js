@@ -95,11 +95,14 @@ const HomePage = (props) => {
 
   return (
     <div>
+      {/* Nav Bar */}
       <React.Fragment>
         <NavBar />
       </React.Fragment>
       <br /><br /><br /><br />
 
+      {/* Main Body */}
+        {/* Add Form */}
       <body className="formBody">
         {editing ? (
                 <EditForm onEditEntry={_updateEntry} entry={selectedEntry} />
