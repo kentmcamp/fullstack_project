@@ -1,4 +1,5 @@
 import React from 'react';
+import './CatButton.scss';
 
 const Button = props => {
     return (

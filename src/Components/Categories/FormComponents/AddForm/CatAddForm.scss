@@ -2,10 +2,9 @@ $background-color: #282c34;
 $prime-color: #4676B4;
 $secondary-color: #7FA3C7;
 $font-color: #EAF6FF;
+$form-background: lighten($background-color, 10%);
 
-$form-background: lighten($background-color, 10%); // Lighten the background color a bit for the form
-
-.Form {
+div.cat_addform {
     background-color: $form-background;
     padding: 20px;
     border-radius: 7px;

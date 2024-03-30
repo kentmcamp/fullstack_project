@@ -1,0 +1,18 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+body {
+    background-color: $background-color;
+}
+
+.cat_formBody {
+    color: $font-color;
+    margin: 10px 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 112px;
+}

@@ -12,12 +12,11 @@ function NavBar() {
     }
 
     return (
-        <header className='navbar'>
+        <div className='navbar'>
             <Logo className='logo' />
             <nav className='link-list' ref={navRef}>
-                <Link to='/home' className='link'>Products</Link>
+                <Link to='/' className='link'>Products</Link>
                 <Link to='/categories' className='link'>Categories</Link>
-                <Link to='/' className='link'>Logout</Link>
                 <button onClick={showNavBar} className='nav-btn'>
                     <FaTimes/>
                 </button>
@@ -25,7 +24,7 @@ function NavBar() {
             <button onClick={showNavBar} className='nav-btn'>
                 <FaBars/>
             </button>
-        </header>
+        </div>
     )
 
 }

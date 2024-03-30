@@ -79,18 +79,17 @@ const HomePage = (props) => {
   };
 
   return (
-    <div>
+    <body>
       <NavBar />
-      <br /><br /><br /><br />
-      <body className="formBody">
+      <div className="formBody">
         {editing ? (
                 <EditForm onEditProduct={_updateProduct} product={selectedProduct} />
             ) : (
                 <AddForm onAddProduct={_addProduct} />
         )}
         <Table entries={products} onEditProduct={_editProduct} onDeleteProduct={_deleteProduct} />
-      </body>
-    </div>
+      </div>
+    </body>
   );
 };
 

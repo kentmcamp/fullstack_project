@@ -2,10 +2,9 @@ $background-color: #282c34;
 $prime-color: #4676B4;
 $secondary-color: #7FA3C7;
 $font-color: #EAF6FF;
+$form-background: lighten($background-color, 10%);
 
-$form-background: lighten($background-color, 10%); // Lighten the background color a bit for the form
-
-.Form {
+div.cat_editform {
     background-color: $form-background;
     padding: 20px;
     border-radius: 7px;
@@ -31,7 +30,7 @@ $form-background: lighten($background-color, 10%); // Lighten the background col
     }
 
     select {
-        appearance: none; // Remove the default appearance
+        appearance: none;
         background-color: $background-color;
         font-weight: bold;
         cursor: pointer;
@@ -41,3 +40,4 @@ $form-background: lighten($background-color, 10%); // Lighten the background col
         width: 100%;
     }
 }
+

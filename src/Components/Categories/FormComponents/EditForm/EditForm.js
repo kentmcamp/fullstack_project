@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './CatEditForm.scss';
 import Button from '../Button/Button';
 
 const EditForm = props => {
@@ -29,7 +30,7 @@ const EditForm = props => {
     }
 
     return (
-        <div>
+        <div className='cat_editform'>
             <label>Category Name:</label>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
             <br />

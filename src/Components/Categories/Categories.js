@@ -5,6 +5,7 @@ import Table from './TableComponents/Table/Table';
 import AddForm from './FormComponents/AddForm/AddForm';
 import EditForm from './FormComponents/EditForm/EditForm';
 import Button from './FormComponents/Button/Button';
+import './Categories.scss';
 
 const Categories = (props) => {
 
@@ -78,8 +79,7 @@ const Categories = (props) => {
     return (
         <div>
             <NavBar />
-            <br /><br /><br /><br />
-            <body className="formBody">
+            <body className="cat_formBody">
                 {editing ? (
                         <EditForm onEditCategory={_updateCategory} category={selectedCategory} />
                     ) : (
