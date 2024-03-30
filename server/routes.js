@@ -5,11 +5,11 @@ const ProductController = require("./controllers/ProductController");
 
 const router = express.Router();
 
-// // Product Routes
-// router.get("/products", ProductController.index);
-// router.post("/products", ProductController.store);
-// router.patch("/products/:product", ProductController.update);
-// router.delete("/products/:product", ProductController.destroy);
+// Product Routes
+router.get("/products", ProductController.index);
+router.post("/products", ProductController.store);
+router.patch("/products/:product", ProductController.update);
+router.delete("/products/:product", ProductController.destroy);
 
 // Web Routes
 router.get("/entries", EntryController.index);

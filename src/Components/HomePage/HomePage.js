@@ -7,110 +7,88 @@ import AddForm from "./FormComponents/AddForm/AddForm";
 import EditForm from "./FormComponents/EditForm/EditForm";
 
 const HomePage = (props) => {
-  const [entries, setEntries] = useState([]);
+  const [products, setProducts] = useState([]);
   const [editing, setEditing] = useState(false);
-  const [selectedEntry, setSelectedEntry] = useState({});
+  const [selectedProduct, setSelectedProduct] = useState({});
 
   //useEffect that fires when the component renders
   useEffect(() => {
-    let url = "http://127.0.0.1:3001/entries";
+    let url = "http://127.0.0.1:3001/products";
     axios
-      .get(url) //npm install axios --save
+      .get(url)
       .then((res) => {
-        console.log(res.data.entries);
-        setEntries(res.data.entries);
+        console.log(res.data.products);
+        setProducts(res.data.products);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []); //empty array like ready
+  }, []);
 
-  //add entry function to pass into AddForm
-  const _addEntry = (entry) => {
-    //send entry to server via axios
-    //update entries with response
-    console.log("App _addEntry triggered");
-
-    let url = "http://127.0.0.1:3001/entries";
+  //add product function to pass into AddForm
+  const _addProduct = (product) => {
+    let url = "http://127.0.0.1:3001/products";
     axios
       .post(url, {
-        entry: entry,
+        product: product,
       })
       .then((res) => {
-        console.log(res.data.entries);
-        setEntries(res.data.entries);
+        console.log(res.data.products);
+        setProducts(res.data.products);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  //edit entry function to pass into EditForm
-  const _editEntry = (entry) => {
-    //set selectedEntry to entry that we will be editing
-    setSelectedEntry(entry);
+  //edit product function to pass into EditForm
+  const _editProduct = (product) => {
+    setSelectedProduct(product);
     setEditing(true);
-    //setEditing to true
-    console.log("App _editEntry triggered");
   };
 
-  const _updateEntry = (entry) => {
-    //send entry to server via axios
-    let url = `http://127.0.0.1:3001/entries/${entry.id}`;
+  const _updateProduct = (product) => {
+    let url = `http://127.0.0.1:3001/products/${product.product_id}`;
     axios
       .patch(url, {
-        entry: entry,
+        product: product,
       })
       .then((res) => {
-        console.log(res.data.entries);
-        setEntries(res.data.entries);
+        console.log(res.data.products);
+        setProducts(res.data.products);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    //update entries with response
     setEditing(false);
-    console.log("App _updateEntry triggered");
   };
 
-  const _deleteEntry = (entry) => {
-    //send entry to server via axios to delete
-    let url = `http://127.0.0.1:3001/entries/${entry.id}`;
+  const _deleteProduct = (product) => {
+    let url = `http://127.0.0.1:3001/products/${product.product_id}`;
     axios
-      .delete(url, {
-        entry: entry,
-      })
+      .delete(url)
       .then((res) => {
-        console.log(res.data.entries);
-        setEntries(res.data.entries);
+        console.log(res.data.products);
+        setProducts(res.data.products);
       })
       .catch((error) => {
         console.log(error);
       });
-
-    //update entries with response
-    console.log("App _deleteEntry triggered");
   };
 
   return (
     <div>
-      {/* Nav Bar */}
-      <React.Fragment>
-        <NavBar />
-      </React.Fragment>
+      <NavBar />
       <br /><br /><br /><br />
-
-      {/* Main Body */}
-        {/* Add Form */}
       <body className="formBody">
         {editing ? (
-                <EditForm onEditEntry={_updateEntry} entry={selectedEntry} />
+                <EditForm onEditEntry={_updateProduct} entry={selectedProduct} />
             ) : (
-                <AddForm onAddEntry={_addEntry} />
+                <AddForm onAddProduct={_addProduct} />
         )}
-        <Table entries={entries} onEditEntry={_editEntry} onDeleteEntry={_deleteEntry}
-        />
+        {/* <Table entries={products} onEditEntry={_editProduct} onDeleteEntry={_deleteProduct}/> */}
+        <Table entries={products} onEditProduct={_editProduct} onDeleteProduct={_deleteProduct} />
       </body>
     </div>
   );

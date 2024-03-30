@@ -10,7 +10,7 @@ module.exports = {
         })
     },
     store(req, res) {
-        db.query(`INSERT INTO categories (name) VALUES (?)`,
+        db.query(`INSERT INTO categories (category_name) VALUES (?)`,
         [req.body.category.name],
         (err, result) => {
             if (err) return res.sendStatus(500);
@@ -21,7 +21,8 @@ module.exports = {
         })
     },
     update(req, res) {
-        db.query(`UPDATE categories SET name=? WHERE id=?`, [req.body.category.name, req.params.category], (err, result)=>{
+        db.query(`UPDATE categories SET name=? WHERE category_id=?`,
+        [req.body.category.name, req.params.category], (err, result)=>{
             if (err) return res.sendStatus(500);
             db.query(`SELECT * FROM categories`, (err, results)=>{
                 if (err) return res.sendStatus(500);
@@ -30,7 +31,8 @@ module.exports = {
         });
     },
     destroy(req, res) {
-        db.query(`DELETE FROM categories WHERE id=?`, [req.params.category], (err, result)=>{
+        db.query(`DELETE FROM categories WHERE category_id=?`,
+        [req.params.category], (err, result)=>{
             if (err) return res.sendStatus(500);
             db.query(`SELECT * FROM categories`, (err, results)=>{
                 if (err) return res.sendStatus(500);

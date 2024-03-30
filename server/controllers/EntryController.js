@@ -1,4 +1,3 @@
-// Establish connection to db
 const db = require('../connection');
 
 module.exports = {
