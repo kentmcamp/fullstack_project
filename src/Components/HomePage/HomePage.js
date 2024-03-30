@@ -83,7 +83,7 @@ const HomePage = (props) => {
       <br /><br /><br /><br />
       <body className="formBody">
         {editing ? (
-                <EditForm onEditEntry={_updateProduct} entry={selectedProduct} />
+                <EditForm onEditProduct={_updateProduct} product={selectedProduct} />
             ) : (
                 <AddForm onAddProduct={_addProduct} />
         )}

@@ -48,7 +48,6 @@ const AddForm = props => {
         _clear();
     }
 
-
     const _clear = () => {
         setProduct({});
         setTitle(''); setDescription(""); setPrice(""); setQuantity(""); setSKU("");

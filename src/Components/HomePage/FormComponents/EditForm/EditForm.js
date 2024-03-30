@@ -13,13 +13,13 @@ const EditForm = props => {
     const [product, setProduct] = useState({});
 
     useEffect(()=>{
-        setID(props.entry.product_id);
-        setTitle(props.entry.title);
-        setDescription(props.entry.description);
-        setPrice(props.entry.price);
-        setQuantity(props.entry.quantity);
-        setSKU(props.entry.sku);
-        setCategoryID(props.entry.category_id);
+        setID(props.product.product_id);
+        setTitle(props.product.title);
+        setDescription(props.product.description);
+        setPrice(props.product.price);
+        setQuantity(props.product.quantity);
+        setSKU(props.product.sku);
+        setCategoryID(props.product.category_id);
     }, [props]);
 
     const _detectTitleTextChanged = (key, value) => {
@@ -55,7 +55,7 @@ const EditForm = props => {
 
     const _edit = () => {
         console.log("EditForm _edit triggered");
-        props.onEditEntry(product);
+        props.onEditProduct(product);
         _clear();
     }
 

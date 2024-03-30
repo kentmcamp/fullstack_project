@@ -1,5 +1,3 @@
-
-// Establish connection to db
 const db = require('../connection');
 
 module.exports = {
@@ -11,7 +9,7 @@ module.exports = {
     },
     store(req, res) {
         db.query(`INSERT INTO categories (category_name) VALUES (?)`,
-        [req.body.category.name],
+        [req.body.category.category_name],
         (err, result) => {
             if (err) return res.sendStatus(500);
             db.query(`SELECT * FROM categories`, (err, results)=>{
@@ -21,8 +19,8 @@ module.exports = {
         })
     },
     update(req, res) {
-        db.query(`UPDATE categories SET name=? WHERE category_id=?`,
-        [req.body.category.name, req.params.category], (err, result)=>{
+        db.query(`UPDATE categories SET category_name=? WHERE category_id=?`,
+        [req.body.category.category_name, req.params.category], (err, result)=>{
             if (err) return res.sendStatus(500);
             db.query(`SELECT * FROM categories`, (err, results)=>{
                 if (err) return res.sendStatus(500);
