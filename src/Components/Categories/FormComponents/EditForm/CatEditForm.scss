@@ -1,0 +1,43 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+$form-background: lighten($background-color, 10%);
+
+div.cat_editform {
+    background-color: $form-background;
+    padding: 20px;
+    border-radius: 7px;
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid $secondary-color; // Add a border around the form
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: $prime-color;
+        font-weight: bold;
+    }
+
+    input, select {
+        color: $prime-color;
+        font-size: 1em;
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 2px solid $secondary-color;
+        border-radius: 7px;
+    }
+
+    select {
+        appearance: none;
+        background-color: $background-color;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+

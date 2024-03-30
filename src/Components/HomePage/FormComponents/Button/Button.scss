@@ -1,0 +1,19 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+button {
+    padding: 10px;
+    border: 2px solid $secondary-color;
+    border-radius: 7px;
+    color: $prime-color;
+    cursor: pointer;
+    font-family: 'Comfortaa', cursive;
+}
+
+button:hover {
+    border: 2px solid $font-color;
+    background-color: $prime-color;
+    color: $font-color;
+}

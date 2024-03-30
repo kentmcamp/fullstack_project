@@ -1,0 +1,21 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+body {
+    background-color: $background-color;
+}
+
+div.formBody {
+    color: $font-color;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 100px;
+}
+
+

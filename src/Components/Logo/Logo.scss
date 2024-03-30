@@ -1,0 +1,16 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+.logo {
+    font-size: 10em;
+    color: $font-color;
+    width: 1em;
+    height: 1em;
+    margin: 20px;
+    border-radius: 50%;
+    border: 3px solid $font-color;
+    padding: 10px;
+    background-color: $prime-color;
+}

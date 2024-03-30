@@ -1,0 +1,22 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+.cat_table {
+    color: $font-color;
+    max-width: 1000px;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+    th, td {
+        border: 1px solid $secondary-color;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: lighten($background-color, 10%);
+        color: $prime-color;
+    }
+}

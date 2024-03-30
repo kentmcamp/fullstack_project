@@ -1,0 +1,38 @@
+$background-color: #282c34;
+$prime-color: #4676B4;
+$secondary-color: #7FA3C7;
+$font-color: #EAF6FF;
+
+.card {
+    height: 400px;
+    width: 500px;
+    display: flex;
+    flex: 0 0 calc(33.33% - 20px);
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: $prime-color;
+    border-radius: 10px;
+}
+
+.card:hover {
+    border: 1px solid $prime-color;
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    box-shadow: 5px 5px 10px $background-color;
+}
+
+.card img {
+    flex: 1;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.card div {
+    flex: 1;
+}
