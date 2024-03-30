@@ -30,10 +30,10 @@ const EditForm = props => {
 
     return (
         <div>
-            <Button onclick={_edit} title="Save Category" />
-            <br />
             <label>Category Name:</label>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
+            <br />
+            <Button onclick={_edit} title="Save Category" />
         </div>
     );
 }

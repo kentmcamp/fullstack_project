@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './AddForm.scss';
 import Button from "../Button/Button";
+import axios from "axios";
 
 const AddForm = props => {
     const [title, setTitle] = useState('');
@@ -10,7 +11,18 @@ const AddForm = props => {
     const [sku, setSKU] = useState('');
     const [category_id, setCategoryID] = useState('');
     const [product, setProduct] = useState({});
+    // For the category dropdown
+    const [categories, setCategories] = useState([]);
 
+    useEffect(() => {
+        axios.get('http://127.0.0.1:3001/categories')
+            .then(response => {
+                setCategories(response.data.categories);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }, []);
     const _detectTitleTextChanged = (key, value) => {
         setTitle(value);
         console.log("_detectTitleTextChanged event fired");
@@ -50,7 +62,7 @@ const AddForm = props => {
 
     const _clear = () => {
         setProduct({});
-        setTitle(''); setDescription(""); setPrice(""); setQuantity(""); setSKU("");
+        setTitle(''); setDescription(""); setPrice(""); setQuantity(""); setSKU(""); setCategoryID("");
         console.log("_clear event fired");
     }
 
@@ -76,9 +88,15 @@ const AddForm = props => {
             <input type="text" placeholder="SKU" value={ sku }
                 onChange={ e => _detectSKUTextChanged('sku', e.target.value) } />
             <br />
-            <label>Category ID:</label>
-            <input type="text" placeholder="Category ID" value={ category_id }
-                onChange={ e => _detectCategoryIDTextChanged('category_id', e.target.value) } />
+            <label>Category:</label>
+                <select value={category_id} onChange={e => _detectCategoryIDTextChanged('category_id', e.target.value)}>
+                <option value="" disabled selected>Select a category</option>
+                    {categories.map(category => (
+                        <option key={category.category_id} value={category.category_id}>
+                            {category.category_name}
+                        </option>
+                    ))}
+                </select>
             <br />
             <Button onclick={ _add } title="Add Product" />
         </div>

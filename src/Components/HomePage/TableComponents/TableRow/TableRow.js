@@ -11,8 +11,8 @@ const TableRow = props => {
                 <p>Price: ${ props.entry.price }</p>
                 <p>Quantity: { props.entry.quantity }</p>
                 <p>SKU: { props.entry.sku }</p>
-                <p>Category: { props.entry.category_id }</p>
-                {/* <button onClick={ () => props.onEditEntry(props.entry) }>Edit</button> */}
+                {/* <p>Category: { props.entry.category_id }</p> */}
+                <td>Category: {props.entry.category_name}</td>
                 <button onClick={ () => props.onEditProduct(props.entry) }>Edit</button>
                 <button onClick={ () => { if (window.confirm('Are you sure you want to delete this entry?')) props.onDeleteEntry(props.entry) } }>Delete</button>
             </div>

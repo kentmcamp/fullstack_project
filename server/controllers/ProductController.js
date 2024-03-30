@@ -2,7 +2,7 @@ const db = require('../connection');
 
 module.exports = {
     index(req, res) {
-        db.query('SELECT * FROM products', (err, results) => {
+        db.query('SELECT products.*, categories.category_name FROM products LEFT JOIN categories ON products.category_id = categories.category_id', (err, results) => {
             if (err) return res.sendStatus(500);
             return res.send({products: results});
         })
@@ -14,7 +14,7 @@ module.exports = {
             console.log("result: " + JSON.stringify(result));
             if (err) return res.sendStatus(500);
 
-            db.query(`SELECT * FROM products`, (err, results)=>{
+            db.query('SELECT products.*, categories.category_name FROM products LEFT JOIN categories ON products.category_id = categories.category_id', (err, results) => {
                 if (err) return res.sendStatus(500);
                 return res.send({ products: results });
             });
@@ -25,7 +25,7 @@ module.exports = {
         [req.body.product.title, req.body.product.description, req.body.product.price, req.body.product.quantity, req.body.product.sku, req.body.product.category_id, req.params.product], (err, result)=>{
             if (err) return res.sendStatus(500);
 
-            db.query(`SELECT * FROM products`, (err, results)=>{
+            db.query('SELECT products.*, categories.category_name FROM products LEFT JOIN categories ON products.category_id = categories.category_id', (err, results) => {
                 if (err) return res.sendStatus(500);
                 return res.send({ products: results });
             });

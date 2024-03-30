@@ -56,6 +56,7 @@ const HomePage = (props) => {
       .then((res) => {
         console.log(res.data.products);
         setProducts(res.data.products);
+
       })
       .catch((error) => {
         console.log(error);
@@ -87,7 +88,6 @@ const HomePage = (props) => {
             ) : (
                 <AddForm onAddProduct={_addProduct} />
         )}
-        {/* <Table entries={products} onEditEntry={_editProduct} onDeleteEntry={_deleteProduct}/> */}
         <Table entries={products} onEditProduct={_editProduct} onDeleteProduct={_deleteProduct} />
       </body>
     </div>

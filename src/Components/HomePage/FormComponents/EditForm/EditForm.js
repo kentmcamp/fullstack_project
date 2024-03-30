@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './EditForm.scss';
 import Button from "../Button/Button";
+import axios from "axios";
 
 const EditForm = props => {
     const [id, setID] = useState('');
@@ -11,6 +12,20 @@ const EditForm = props => {
     const [sku, setSKU] = useState('');
     const [category_id, setCategoryID] = useState('');
     const [product, setProduct] = useState({});
+    // For the category dropdown
+    const [categories, setCategories] = useState([]);
+
+useEffect(() => {
+    axios.get('http://127.0.0.1:3001/categories')
+        .then(response => {
+            setCategories(response.data.categories);
+        })
+        .catch(error => {
+            console.error('There was an error!', error);
+        });
+}, []);
+// test
+
 
     useEffect(()=>{
         setID(props.product.product_id);
@@ -49,9 +64,9 @@ const EditForm = props => {
 
 
     useEffect( () => {
-        setProduct({'product_id':id, 'title':title, 'description':description, 'price':price, 'quantity':quantity, 'sku':sku});
+        setProduct({'product_id':id, 'title':title, 'description':description, 'price':price, 'quantity':quantity, 'sku':sku, 'category_id':category_id});
         console.log("setProduct Changed");
-    }, [id, title, description, price, quantity, sku]);
+    }, [id, title, description, price, quantity, sku, category_id]);
 
     const _edit = () => {
         console.log("EditForm _edit triggered");
@@ -67,8 +82,6 @@ const EditForm = props => {
 
     return(
         <div className="Form" style={ {marginTop:'16px'} }>
-            <Button onclick={ _edit } title="Save Product" />
-            <br />
             <label>Title:</label>
             <input type="text" placeholder="Title" value={ title }
               onChange={ e => _detectTitleTextChanged('title', e.target.value) } />
@@ -89,9 +102,19 @@ const EditForm = props => {
             <input type="text" placeholder="SKU" value={ sku }
               onChange={ e => _detectSKUTextChanged('sku', e.target.value) } />
             <br />
-            <label>Category ID:</label>
-            <input type="text" placeholder="Category ID" value={ category_id }
-              onChange={ e => _detectCategoryIDTextChanged('category_id', e.target.value) } />
+            <label>Category:</label>
+            <select value={category_id} onChange={e => _detectCategoryIDTextChanged('category_id', e.target.value)}>
+                {categories.map(category => (
+                    <option key={category.category_id} value={category.category_id}>
+                        {category.category_name}
+                    </option>
+                ))}
+            </select>
+            {/* <input type="text" placeholder="Category ID" value={ category_id }
+              onChange={ e => _detectCategoryIDTextChanged('category_id', e.target.value) } /> */}
+
+            <br />
+            <Button onclick={ _edit } title="Save Product" />
         </div>
     );
 }
