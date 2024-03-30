@@ -40,8 +40,6 @@ const AddForm = props => {
 
     return(
         <div className="Form" style={ {marginTop:'16px'} }>
-            <Button onclick={ _add } title="Add Entry" />
-            <br />
             <label>Value 1:</label>
             <input type="text" placeholder="Value 1" value={ value1 }
               onChange={ e => _detectValue1TextChanged('value1', e.target.value) } />
@@ -53,6 +51,8 @@ const AddForm = props => {
             <label>Value 3:</label>
             <input type="text" placeholder="Value 3" value={ value3 }
               onChange={ e => _detectValue3TextChanged('value3', e.target.value) } />
+            <br /><br />
+            <Button onclick={ _add } title="Add Entry" />
             </div>
     );
 }
